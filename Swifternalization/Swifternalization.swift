@@ -192,6 +192,9 @@ final public class Swifternalization {
     */
     private func getPreferredLanguage(bundle: NSBundle) -> CountryCode {
         // Get preferred language, the one which is set on user's device
-        return bundle.preferredLocalizations.first! as CountryCode
+        
+        let lan = NSLocale.preferredLanguages().first
+        let prefered = lan?.componentsSeparatedByString("-").first
+        return prefered ?? "en"
     }
 }
