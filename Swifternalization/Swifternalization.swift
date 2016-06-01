@@ -202,7 +202,6 @@ final public class Swifternalization {
         // Get preferred language, the one which is set on user's device
         
         if let p = preferredLanguage {
-            print("settings langueage \(p)")
             return p
         } else {
             let lan = NSLocale.preferredLanguages().first
