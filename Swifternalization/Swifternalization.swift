@@ -192,6 +192,7 @@ final public class Swifternalization {
     
     public class func setPreferredLanguage(lang:String?) {
         sharedInstance.preferredLanguage = lang
+        I18n.configure()
     }
     
     /** 
@@ -199,7 +200,9 @@ final public class Swifternalization {
     */
     private func getPreferredLanguage(bundle: NSBundle) -> CountryCode {
         // Get preferred language, the one which is set on user's device
+        
         if let p = preferredLanguage {
+            print("settings langueage \(p)")
             return p
         } else {
             let lan = NSLocale.preferredLanguages().first
