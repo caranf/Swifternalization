@@ -41,8 +41,6 @@ final public class Swifternalization {
      */
     private var configured = false
     
-    public var preferredLanguage:String? = nil //automaticky jazyk
-    
     // MARK: Public Methods
     
     /**
@@ -189,6 +187,12 @@ final public class Swifternalization {
         configured = true
     }
     
+    
+    private var preferredLanguage:String? = nil //automaticky jazyk
+    
+    public class func setPreferredLanguage(lang:String?) {
+        sharedInstance.preferredLanguage = lang
+    }
     
     /** 
     Get preferred language of user's device.
