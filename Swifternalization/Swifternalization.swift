@@ -41,6 +41,8 @@ final public class Swifternalization {
      */
     private var configured = false
     
+    public var preferredLanguage:String? = nil //automaticky jazyk
+    
     // MARK: Public Methods
     
     /**
@@ -187,14 +189,18 @@ final public class Swifternalization {
         configured = true
     }
     
+    
     /** 
     Get preferred language of user's device.
     */
     private func getPreferredLanguage(bundle: NSBundle) -> CountryCode {
         // Get preferred language, the one which is set on user's device
-        
-        let lan = NSLocale.preferredLanguages().first
-        let prefered = lan?.componentsSeparatedByString("-").first
-        return prefered ?? "en"
+        if let p = preferredLanguage {
+            return p
+        } else {
+            let lan = NSLocale.preferredLanguages().first
+            let prefered = lan?.componentsSeparatedByString("-").first
+            return prefered ?? "en"
+        }
     }
 }
